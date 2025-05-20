@@ -8,11 +8,8 @@
     <p>Testisivu</p>
     <script>
       result = fetch('https://api.lanyard.rest/v1/users/491473057538506763 ')
-    .then(result => result.json())
-    if (!result.listening_to_spotify) {
-      console.log('not listening to spotify')
-    }
-    console.log(result);
+      .then(result => result.json())
+      .then(console.log(result));
     </script>
   </body>
 </html>
