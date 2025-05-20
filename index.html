@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Testisivu</title>
+    <title>cheku</title>
     <link rel="stylesheet" href="omasivu.css">
   </head>
   <body>
-    <p>Testisivu</p>
+    <p id="username">loading...</p>
+    
     <script>
       result = fetch('https://api.lanyard.rest/v1/users/491473057538506763')
     .then(result => result.json())
     console.log(result);
+    document.getElementById("username").innerHTML = result.discord_user.username;
     </script>
   </body>
 </html>
