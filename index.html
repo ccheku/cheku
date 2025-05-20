@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>cheku</title>
+    <title>Testisivu</title>
     <link rel="stylesheet" href="omasivu.css">
   </head>
   <body>
     <p>Testisivu</p>
-    <button id="statusButton">Get Status</button>
     <script>
-      statusButton.onclick(
-        result = fetch('https://api.lanyard.rest/v1/users/491473057538506763 '),
-        result => result.json,
-        console.log(result)
-      )
+      result = fetch('https://api.lanyard.rest/v1/users/491473057538506763')
+    .then(result => result.json())
+    console.log(result);
     </script>
   </body>
 </html>
