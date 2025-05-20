@@ -6,11 +6,13 @@
   </head>
   <body>
     <p>Testisivu</p>
+    <button id="statusButton">Get Status</button>
     <script>
-      let result = undefined;
-      result = fetch('https://api.lanyard.rest/v1/users/491473057538506763 ')
-      .then(result => result.json())
-      .then(console.log(result));
+      statusButton.onclick(
+        result = fetch('https://api.lanyard.rest/v1/users/491473057538506763 ')
+        .then(result => result.json())
+        .then(console.log(result));
+      )
     </script>
   </body>
 </html>
