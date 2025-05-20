@@ -6,7 +6,12 @@
     <meta charset="UTF-8"/>
   </head>
   <body>
-    <p id="username">loading...</p>
+    <p id="username">loading username...</p>
+    <div id="spotifyStatus">
+      <p id="spotifyAlbum">loading album...</p>
+      <p id="spotifyTrack">loading track...</p>
+      <p id="spotifyArtist">loading artist...</p>
+    </div>
     <button onclick="fetchStatus();">Get Status</button>
 
     <script>
@@ -20,6 +25,12 @@
             document.getElementById("username").innerHTML = result.data.discord_user.global_name;
           } else {
             document.getElementById("username").innerHTML = "User data not found";
+          }
+
+          if (result && result.data && result.data.listening_to_spotify && spotify) {
+            document.getElementById("spotifyAlbum").innerHTML = result.data.spotify.album;
+            document.getElementById("spotifyTrack").innerHTML = result.data.spotify.song;
+            document.getElementById("spotifyArtist").innerHTML = result.data.spotify.artist;
           }
         } catch (error) {
           console.error('Error fetching status:', error);
