@@ -27,7 +27,7 @@
             document.getElementById("username").innerHTML = "User data not found";
           }
 
-          if (result && result.data && result.data.listening_to_spotify && spotify) {
+          if (result && result.data && result.data.listening_to_spotify && result.data.spotify) {
             document.getElementById("spotifyAlbum").innerHTML = result.data.spotify.album;
             document.getElementById("spotifyTrack").innerHTML = result.data.spotify.song;
             document.getElementById("spotifyArtist").innerHTML = result.data.spotify.artist;
