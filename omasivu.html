@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Testisivu</title>
+    <link rel="stylesheet" href="omasivu.css">
+  </head>
+  <body>
+    <p>Testisivu</p>
+    <script>
+      result = fetch('https://api.lanyard.rest/v1/users/491473057538506763 ')
+    .then(result => result.json())
+    if (!result.listening_to_spotify) {
+      console.log('not listening to spotify')
+    }
+    console.log(result);
+    </script>
+  </body>
+</html>
