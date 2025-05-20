@@ -11,7 +11,7 @@
       result = fetch('https://api.lanyard.rest/v1/users/491473057538506763')
     .then(result => result.json())
     console.log(result);
-    document.getElementById("username").innerHTML = result.discord_user.username;
+    document.getElementById("username").innerHTML = result.discord_user.global_name;
     </script>
   </body>
 </html>
