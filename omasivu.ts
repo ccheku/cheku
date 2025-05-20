@@ -1,3 +1,7 @@
+statusButton.click() {
+  fetchStatus();
+}
+
 async function fetchStatus() {
   try {
     const response = await fetch('https://api.lanyard.rest/v1/users/491473057538506763');
