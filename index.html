@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Testisivu</title>
+    <title>cheku</title>
     <link rel="stylesheet" href="omasivu.css">
   </head>
   <body>
     <p>Testisivu</p>
     <script>
-      fetch('https://api.lanyard.rest/v1/users/491473057538506763 ')
-      .then(res => res.json())
-      .then(console.log(res));
+      let result = undefined;
+      result = fetch('https://api.lanyard.rest/v1/users/491473057538506763 ')
+      .then(result => result.json())
+      .then(console.log(result));
     </script>
   </body>
 </html>
