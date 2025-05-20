@@ -6,12 +6,14 @@
   </head>
   <body>
     <p id="username">loading...</p>
-    
+    <button onclick="fetchStatus();">Get Status</button>
     <script>
-      result = fetch('https://api.lanyard.rest/v1/users/491473057538506763')
-      result => result.json()
-      await console.log(result);
-      document.getElementById("username").innerHTML = result.discord_user.global_name;
+      async function fetchStatus() {
+        result = fetch('https://api.lanyard.rest/v1/users/491473057538506763')
+        result => result.json()
+        await console.log(result);
+        document.getElementById("username").innerHTML = result.discord_user.global_name;
+      }
     </script>
   </body>
 </html>
