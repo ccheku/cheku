@@ -4,53 +4,142 @@
     <title>cheku</title>
     <link rel="stylesheet" href="omasivu.css">
     <meta charset="UTF-8"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Armata&display=swap" rel="stylesheet">
   </head>
-  <body>
+  <button class="lightModeButton" id="lightModeButton" onclick="lightMode()"></button>
+  <body id ="body">
     <div class="profileBody">
       <div class="profileDiv">
-        <img class="userProfile" id="userProfile" src=""> </img>
-        <p id="username">loading username...</p>
+        <img class="userProfile" id="userProfile" src="pfp-placeholder.png"> </img>
+        <p id="username"></p>
+        <div class="statusRow">
+          <button class="discordStatus" id="discordStatus" onclick="fetchStatus();">Get Status</button>
+        </div>
       </div>
       <div class="spotifyStatus" id="spotifyStatus">
-        <img class="spotifyArt" id="spotifyArt" src=""> </img>
-        <p class="spotifyAlbum" id="spotifyAlbum">loading album...</p>
-        <p class="spotifyTrack" id="spotifyTrack">loading track...</p>
-        <p class="spotifyArtist" id="spotifyArtist">loading artist...</p>
+        <img class="spotifyArt" id="spotifyArt" src="spotify-logo.png"> </img>
+        <!-- <p class="spotifyAlbum" id="spotifyAlbum"></p> -->
+        <p class="spotifyTrack" id="spotifyTrack">Not listening.</p>
+        <p class="spotifyArtist" id="spotifyArtist"></p>
       </div>
     </div>
-    <button onclick="fetchStatus();">Get Status</button>
 
     <script>
+      /*while (true) {
+        setTimeout(fetchStatus, 5000)
+      }*/
+
       async function fetchStatus() {
         try {
           const response = await fetch('https://api.lanyard.rest/v1/users/491473057538506763');
           const result = await response.json();
           console.log(result);
 
-          if (result && result.data && result.data.discord_user) {
-            document.getElementById("userProfile").src = `https://cdn.discordapp.com/avatars/491473057538506763/${result.data.discord_user.avatar}.png`;
+          // Data variables
+          const data = result.data;
+          const discord_status = data.discord_status;
+          const spotify = data.spotify;
+
+          if (result && data && data.discord_user) {
+            document.getElementById("userProfile").src = `https://cdn.discordapp.com/avatars/491473057538506763/${data.discord_user.avatar}.png`;
           }
-          if (result && result.data && result.data.discord_user) {
-            document.getElementById("username").innerHTML = result.data.discord_user.global_name;
+          if (result && data && data.discord_user) {
+            document.getElementById("username").innerHTML = `${data.discord_user.display_name} (${data.discord_user.global_name})`;
           } else {
             document.getElementById("username").innerHTML = "User data not found";
           }
 
-          if (result && result.data && result.data.listening_to_spotify && result.data.spotify) {
-            document.getElementById("spotifyArt").src = result.data.spotify.album_art_url;
-            if (result.data.spotify.album === result.data.spotify.artist) {
-              document.getElementById("spotifyAlbum").innerHTML = "Self-Titled";
-            } else {
-              document.getElementById("spotifyAlbum").innerHTML = result.data.spotify.album;
+          // Discord Status
+          if (result && data && discord_status) {
+            document.getElementById("discordStatus").innerHTML = discord_status;
+            if (discord_status === "online") {
+              document.getElementById("discordStatus").style.backgroundColor = "rgb(67, 162, 90)";
+              document.getElementById("discordStatus").style.borderStyle = "none";
+              discordStatus.addEventListener("mouseenter", () => {
+                discordStatus.style.boxShadow = "0 0 10px rgb(67, 162, 90)";
+              });
+
+              discordStatus.addEventListener("mouseleave", () => {
+                discordStatus.style.boxShadow = "none";
+              });
+            } else if (discord_status === "idle") {
+              document.getElementById("discordStatus").style.backgroundColor = "rgb(202, 150, 84)";
+              document.getElementById("discordStatus").style.borderStyle = "none";
+              discordStatus.addEventListener("mouseenter", () => {
+                discordStatus.style.boxShadow = "0 0 10px rgb(202, 150, 84)";
+              });
+
+              discordStatus.addEventListener("mouseleave", () => {
+                discordStatus.style.boxShadow = "none";
+              });
+            } else if (discord_status === "dnd") {
+              document.getElementById("discordStatus").innerHTML = 'Do Not Disturb';
+              document.getElementById("discordStatus").style.backgroundColor = "rgb(216, 58, 66)";
+              document.getElementById("discordStatus").style.borderStyle = "none";
+              discordStatus.addEventListener("mouseenter", () => {
+                discordStatus.style.boxShadow = "0 0 10px rgb(216, 58, 66)";
+              });
+
+              discordStatus.addEventListener("mouseleave", () => {
+                discordStatus.style.boxShadow = "none";
+              });
+            } else if (discord_status === "offline") {
+              document.getElementById("discordStatus").style.backgroundColor = "rgb(130, 131, 139)";
+              document.getElementById("discordStatus").style.borderStyle = "none";
+              discordStatus.addEventListener("mouseenter", () => {
+                discordStatus.style.boxShadow = "0 0 10px rgb(130, 131, 139)";
+              });
+
+              discordStatus.addEventListener("mouseleave", () => {
+                discordStatus.style.boxShadow = "none";
+              });
             }
-            document.getElementById("spotifyTrack").innerHTML = result.data.spotify.song;
-            document.getElementById("spotifyArtist").innerHTML = result.data.spotify.artist;
+          }
+
+          // Spotify
+          if (result && data && data.listening_to_spotify && spotify) {
+            document.getElementById("spotifyArt").src = spotify.album_art_url;
+            /* // Album Checks 
+            if (spotify.album === spotify.artist) {
+              document.getElementById("spotifyAlbum").innerHTML = "Self-Titled |";
+            } else if (spotify.album === spotify.song) {
+              document.getElementById("spotifyAlbum").innerHTML = "";
+            } else {
+              document.getElementById("spotifyAlbum").innerHTML = spotify.album + ' |';
+            }
+            */
+            document.getElementById("spotifyTrack").innerHTML = spotify.song + ' |';
+            document.getElementById("spotifyArtist").innerHTML = spotify.artist;
+          } else {
+            document.getElementById("spotifyArt").src = "spotify-logo.png";
+            document.getElementById("spotifyTrack").innerHTML = 'Not listening to anything.';
+            document.getElementById("spotifyArtist").innerHTML = '';
           }
         } catch (error) {
           console.error('Error fetching status:', error);
           document.getElementById("username").innerHTML = "Error loading user";
         }
-}
+      }
+
+      function lightMode() {
+        if (document.getElementById("body").style.backgroundColor === "black") {
+          document.getElementById("body").style.backgroundColor = "white";
+          document.getElementById("body").style.color = "black";
+          document.getElementById("lightModeButton").style.backgroundColor = "black";
+          if (document.getElementById("discordStatus").style.backgroundColor === "white") {
+            document.getElementById("discordStatus").style.backgroundColor = "black";
+          }
+        } else {
+          document.getElementById("body").style.backgroundColor = "black";
+          document.getElementById("body").style.color = "white";
+          document.getElementById("lightModeButton").style.backgroundColor = "white";
+          if (document.getElementById("discordStatus").style.backgroundColor === "black") {
+            document.getElementById("discordStatus").style.backgroundColor = "white";
+          }
+        }
+      }
     </script>
   </body>
 </html>
