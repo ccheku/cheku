@@ -8,14 +8,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Armata&display=swap" rel="stylesheet">
   </head>
-  <button class="lightModeButton" id="lightModeButton" onclick="lightMode()"></button>
-  <body id ="body">
+  <body id ="body" style="background-color: black;">
+    <button class="lightModeButton" id="lightModeButton" onclick="lightMode()">🌞</button>
     <div class="profileBody">
       <div class="profileDiv">
         <img class="userProfile" id="userProfile" src="pfp-placeholder.png"> </img>
         <p id="username"></p>
         <div class="statusRow">
-          <button class="discordStatus" id="discordStatus" onclick="fetchStatus();">Get Status</button>
+          <button class="discordStatus" id="discordStatus" onclick="fetchStatus();" style="background-color: black; color: white; border-color: white;">Get Status</button>
         </div>
       </div>
       <div class="spotifyStatus" id="spotifyStatus">
@@ -44,6 +44,7 @@
 
           if (result && data && data.discord_user) {
             document.getElementById("userProfile").src = `https://cdn.discordapp.com/avatars/491473057538506763/${data.discord_user.avatar}.png`;
+            document.getElementById("userProfile").style.marginRight = "10px";
           }
           if (result && data && data.discord_user) {
             document.getElementById("username").innerHTML = `${data.discord_user.display_name} (${data.discord_user.global_name})`;
@@ -127,16 +128,20 @@
         if (document.getElementById("body").style.backgroundColor === "black") {
           document.getElementById("body").style.backgroundColor = "white";
           document.getElementById("body").style.color = "black";
-          document.getElementById("lightModeButton").style.backgroundColor = "black";
-          if (document.getElementById("discordStatus").style.backgroundColor === "white") {
-            document.getElementById("discordStatus").style.backgroundColor = "black";
+          document.getElementById("lightModeButton").innerHTML = "🌙";
+          document.getElementById("discordStatus").style.color = "black";
+          document.getElementById("discordStatus").style.borderColor = "black";
+          if (document.getElementById("discordStatus").style.backgroundColor === "black") {
+            document.getElementById("discordStatus").style.backgroundColor = "white";
           }
         } else {
           document.getElementById("body").style.backgroundColor = "black";
           document.getElementById("body").style.color = "white";
-          document.getElementById("lightModeButton").style.backgroundColor = "white";
-          if (document.getElementById("discordStatus").style.backgroundColor === "black") {
-            document.getElementById("discordStatus").style.backgroundColor = "white";
+          document.getElementById("lightModeButton").innerHTML = "🌞";
+          document.getElementById("discordStatus").style.color = "white";
+          document.getElementById("discordStatus").style.borderColor = "white";
+          if (document.getElementById("discordStatus").style.backgroundColor === "white") {
+            document.getElementById("discordStatus").style.backgroundColor = "black";
           }
         }
       }
