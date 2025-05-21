@@ -6,11 +6,17 @@
     <meta charset="UTF-8"/>
   </head>
   <body>
-    <p id="username">loading username...</p>
-    <div id="spotifyStatus">
-      <p id="spotifyAlbum">loading album...</p>
-      <p id="spotifyTrack">loading track...</p>
-      <p id="spotifyArtist">loading artist...</p>
+    <div class="profileBody">
+      <div class="profileDiv">
+        <img class="userProfile" id="userProfile" src=""> </img>
+        <p id="username">loading username...</p>
+      </div>
+      <div class="spotifyStatus" id="spotifyStatus">
+        <img class="spotifyArt" id="spotifyArt" src=""> </img>
+        <p class="spotifyAlbum" id="spotifyAlbum">loading album...</p>
+        <p class="spotifyTrack" id="spotifyTrack">loading track...</p>
+        <p class="spotifyArtist" id="spotifyArtist">loading artist...</p>
+      </div>
     </div>
     <button onclick="fetchStatus();">Get Status</button>
 
@@ -22,13 +28,21 @@
           console.log(result);
 
           if (result && result.data && result.data.discord_user) {
+            document.getElementById("userProfile").src = `https://cdn.discordapp.com/avatars/491473057538506763/${result.data.discord_user.avatar}.png`;
+          }
+          if (result && result.data && result.data.discord_user) {
             document.getElementById("username").innerHTML = result.data.discord_user.global_name;
           } else {
             document.getElementById("username").innerHTML = "User data not found";
           }
 
           if (result && result.data && result.data.listening_to_spotify && result.data.spotify) {
-            document.getElementById("spotifyAlbum").innerHTML = result.data.spotify.album;
+            document.getElementById("spotifyArt").src = result.data.spotify.album_art_url;
+            if (result.data.spotify.album === result.data.spotify.artist) {
+              document.getElementById("spotifyAlbum").innerHTML = "Self-Titled";
+            } else {
+              document.getElementById("spotifyAlbum").innerHTML = result.data.spotify.album;
+            }
             document.getElementById("spotifyTrack").innerHTML = result.data.spotify.song;
             document.getElementById("spotifyArtist").innerHTML = result.data.spotify.artist;
           }

@@ -2,4 +2,38 @@ body {
   background-color: black;
   color: white;
   font-family: Arial;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  display: inline-block;
+}
+
+button {
+  display: block;
+}
+
+.profileBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid white;
+  border-radius: 5px;
+  vertical-align: middle;
+  margin-top: 200px;
+  padding-
+}
+
+.userProfile {
+  width: 80px;
+  height: 80px;
+  vertical-align: middle;
+}
+
+.spotifyArt {
+  width: 80px;
+  height: 80px;
 }
