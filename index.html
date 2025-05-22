@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Armata&display=swap" rel="stylesheet">
   </head>
   <body id ="body" style="background-color: black;">
-    <button class="lightModeButton" id="lightModeButton" onclick="lightMode()">🌞</button>
+    <button class="lightModeButton" id="lightModeButton" onclick="lightMode()">☀️</button>
     <div class="profileBody">
       <div class="profileDiv">
         <img class="userProfile" id="userProfile" src="pfp-placeholder.png"> </img>
@@ -19,11 +19,14 @@
         </div>
       </div>
       <div class="spotifyStatus" id="spotifyStatus">
-        <a href="https://open.spotify.com/" class="trackLink" id="trackLink"><img class="spotifyArt" id="spotifyArt" src="spotify-logo.png" style="margin-left: 8px;"> </img></a>
+        <a href="" class="trackLink" id="trackLink"><img class="spotifyArt" id="spotifyArt" src="transparent-placeholder.png" style="margin-left: 8px;"> </img></a>
         <!-- <p class="spotifyAlbum" id="spotifyAlbum"></p> -->
         <p class="spotifyTrack" id="spotifyTrack"></p>
         <p class="spotifyArtist" id="spotifyArtist"></p>
-        <p id="songDuration"></p>
+        <p class="songDuration" id="songDuration"></p>
+        <div id="progress-container">
+          <div id="progress-bar"></div>
+        </div>
       </div>
     </div>
 
@@ -117,31 +120,43 @@
             */
             document.getElementById("spotifyTrack").innerHTML = spotify.song + ' |';
             document.getElementById("spotifyArtist").innerHTML = spotify.artist;
+            document.getElementById("progress-container").style.borderStyle = 'solid';
+
+            const spotifyStart = spotify.timestamps.start;
+            const spotifyEnd = spotify.timestamps.end;
+            const now = Date.now();
+
+            const elapsedMs = now - spotifyStart;
+            const elapsedSeconds = Math.floor(elapsedMs / 1000);
+
+            const songMilliseconds = spotifyEnd - spotifyStart
+            songLength = Math.floor(songMilliseconds / 1000)
+
+            function formatTime(seconds) {
+              const mins = Math.floor(seconds / 60);
+              const secs = Math.floor(seconds % 60);
+              return `${mins}:${secs.toString().padStart(2, '0')}`;
+            }
+
+            document.getElementById("songDuration").innerHTML = `${formatTime(elapsedSeconds)}/${formatTime(songLength)}`
+            updateProgressBar(elapsedSeconds, songLength)
+            
+            function updateProgressBar(elapsed, total) {
+              const percent = (elapsed / total) * 100;
+              document.getElementById("progress-bar").style.width = `${percent}%`;
+            }
           } else {
-            document.getElementById("spotifyArt").src = "spotify-logo.png";
+            document.getElementById("spotifyArt").src = "transparent-placeholder.png";
             document.getElementById("spotifyArt").style.marginLeft = "8px";
             document.getElementById("spotifyArt").style.marginRight = "0px";
             document.getElementById("spotifyTrack").innerHTML = '';
             document.getElementById("spotifyArtist").innerHTML = '';
-            document.getElementById("trackLink").href = "https://open.spotify.com/";
+            document.getElementById("trackLink").href = "";
+            document.getElementById("progress-container").style.borderStyle = 'none';
+            document.getElementById("progress-bar").style.width = `0%`;
+            document.getElementById("songDuration").innerHTML = ``
+
           }
-          const spotifyStart = spotify.timestamps.start;
-          const spotifyEnd = spotify.timestamps.end;
-          const now = Date.now();
-
-          const elapsedMs = now - spotifyStart;
-          const elapsedSeconds = Math.floor(elapsedMs / 1000);
-
-          const songMilliseconds = spotifyEnd - spotifyStart
-          songLength = Math.floor(songMilliseconds / 1000)
-
-          function formatTime(seconds) {
-            const mins = Math.floor(seconds / 60);
-            const secs = Math.floor(seconds % 60);
-            return `${mins}:${secs.toString().padStart(2, '0')}`;
-          }
-
-          document.getElementById("songDuration").innerHTML = `${formatTime(elapsedSeconds)}/${formatTime(songLength)}`
 
         } catch (error) {
           console.error('Error fetching status:', error);
@@ -162,7 +177,7 @@
         } else {
           document.getElementById("body").style.backgroundColor = "black";
           document.getElementById("body").style.color = "white";
-          document.getElementById("lightModeButton").innerHTML = "🌞";
+          document.getElementById("lightModeButton").innerHTML = "☀️";
           document.getElementById("discordStatus").style.color = "white";
           document.getElementById("discordStatus").style.borderColor = "white";
           if (document.getElementById("discordStatus").style.backgroundColor === "white") {
