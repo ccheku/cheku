@@ -21,7 +21,7 @@
       <div class="spotifyStatus" id="spotifyStatus">
         <img class="spotifyArt" id="spotifyArt" src="spotify-logo.png"> </img>
         <!-- <p class="spotifyAlbum" id="spotifyAlbum"></p> -->
-        <p class="spotifyTrack" id="spotifyTrack">Not listening.</p>
+        <p class="spotifyTrack" id="spotifyTrack">...</p>
         <p class="spotifyArtist" id="spotifyArtist"></p>
       </div>
     </div>
@@ -115,7 +115,7 @@
             document.getElementById("spotifyArtist").innerHTML = spotify.artist;
           } else {
             document.getElementById("spotifyArt").src = "spotify-logo.png";
-            document.getElementById("spotifyTrack").innerHTML = 'Not listening to anything.';
+            document.getElementById("spotifyTrack").innerHTML = '...';
             document.getElementById("spotifyArtist").innerHTML = '';
           }
         } catch (error) {

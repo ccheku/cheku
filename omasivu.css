@@ -37,7 +37,8 @@ button:hover {
   align-items: center;
   border-style: none;
   vertical-align: middle;
-  margin-top: 200px;
+  margin-top: 15%;
+  width: 100%;
 }
 
 .userProfile {
