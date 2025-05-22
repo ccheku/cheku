@@ -15,7 +15,7 @@
         <img class="userProfile" id="userProfile" src="pfp-placeholder.png"> </img>
         <p class="username" id="username"></p>
         <div class="statusRow">
-          <button class="discordStatus" id="discordStatus" onclick="fetchStatus();" style="background-color: black; color: white; border-color: white;">Get Status</button>
+          <button class="discordStatus" id="discordStatus" style="background-color: black; color: white; border-color: white;">loading...</button>
         </div>
       </div>
       <div class="spotifyStatus" id="spotifyStatus">
@@ -64,44 +64,23 @@
             if (discord_status === "online") {
               document.getElementById("discordStatus").style.backgroundColor = "rgb(67, 162, 90)";
               document.getElementById("discordStatus").style.borderStyle = "none";
-              discordStatus.addEventListener("mouseenter", () => {
-                discordStatus.style.boxShadow = "0 0 10px rgb(67, 162, 90)";
-              });
+              discordStatus.style.boxShadow = "0 0 10px rgb(67, 162, 90)";
 
-              discordStatus.addEventListener("mouseleave", () => {
-                discordStatus.style.boxShadow = "none";
-              });
             } else if (discord_status === "idle") {
               document.getElementById("discordStatus").style.backgroundColor = "rgb(202, 150, 84)";
               document.getElementById("discordStatus").style.borderStyle = "none";
-              discordStatus.addEventListener("mouseenter", () => {
-                discordStatus.style.boxShadow = "0 0 10px rgb(202, 150, 84)";
-              });
+              discordStatus.style.boxShadow = "0 0 10px rgb(202, 150, 84)";
 
-              discordStatus.addEventListener("mouseleave", () => {
-                discordStatus.style.boxShadow = "none";
-              });
             } else if (discord_status === "dnd") {
               document.getElementById("discordStatus").innerHTML = 'Do Not Disturb';
               document.getElementById("discordStatus").style.backgroundColor = "rgb(216, 58, 66)";
               document.getElementById("discordStatus").style.borderStyle = "none";
-              discordStatus.addEventListener("mouseenter", () => {
-                discordStatus.style.boxShadow = "0 0 10px rgb(216, 58, 66)";
-              });
+              discordStatus.style.boxShadow = "0 0 10px rgb(216, 58, 66)";
 
-              discordStatus.addEventListener("mouseleave", () => {
-                discordStatus.style.boxShadow = "none";
-              });
             } else if (discord_status === "offline") {
               document.getElementById("discordStatus").style.backgroundColor = "rgb(130, 131, 139)";
               document.getElementById("discordStatus").style.borderStyle = "none";
-              discordStatus.addEventListener("mouseenter", () => {
-                discordStatus.style.boxShadow = "0 0 10px rgb(130, 131, 139)";
-              });
-
-              discordStatus.addEventListener("mouseleave", () => {
-                discordStatus.style.boxShadow = "none";
-              });
+              discordStatus.style.boxShadow = "0 0 10px rgb(130, 131, 139)";
             }
           }
 
@@ -173,6 +152,8 @@
           document.getElementById("lightModeButton").innerHTML = "🌙";
           document.getElementById("discordStatus").style.color = "black";
           document.getElementById("discordStatus").style.borderColor = "black";
+          document.getElementById("progress-container").style.borderColor = "black";
+          document.getElementById("progress-bar").style.backgroundColor = "black";
           if (document.getElementById("discordStatus").style.backgroundColor === "black") {
             document.getElementById("discordStatus").style.backgroundColor = "white";
           }
@@ -182,6 +163,8 @@
           document.getElementById("lightModeButton").innerHTML = "☀️";
           document.getElementById("discordStatus").style.color = "white";
           document.getElementById("discordStatus").style.borderColor = "white";
+          document.getElementById("progress-container").style.borderColor = "white";
+          document.getElementById("progress-bar").style.backgroundColor = "white";
           if (document.getElementById("discordStatus").style.backgroundColor === "white") {
             document.getElementById("discordStatus").style.backgroundColor = "black";
           }

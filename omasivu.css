@@ -80,6 +80,7 @@ button:hover {
   font-family: Armata;
   font-weight: 800;
   transition-duration: 0.5s;
+  pointer-events: none;
 }
 
 .spotifyStatus {
@@ -122,6 +123,7 @@ button:hover {
   border-width: 1px;
   overflow: hidden;
   margin-bottom: 5px;
+  transition-duration: 0.5s;
 }
 
 #progress-bar {
@@ -129,6 +131,7 @@ button:hover {
   width: 0%;
   background-color: #FFFFFF;
   transition: width 0.3s ease;
+  transition-duration: 0.5s;
 }
 
 @media only screen and (max-width: 1024px) {
