@@ -35,6 +35,8 @@
         setTimeout(fetchStatus, 5000)
       }*/
 
+      setInterval(fetchStatus, 1000);
+
       async function fetchStatus() {
         try {
           const response = await fetch('https://api.lanyard.rest/v1/users/491473057538506763');
