@@ -1,4 +1,5 @@
 body {
+  margin: 0;
   background-color: black;
   color: white;
   font-family: Armata;
@@ -7,7 +8,7 @@ body {
 }
 
 p {
-  display: inline-block;
+  display: block;
 }
 
 button {
@@ -25,6 +26,8 @@ button:hover {
   height: 60px;
   font-size: 40px;
   margin: 0;
+  margin-left: 10px;
+  margin-top: 10px;
   padding: 0;
   background-color: transparent;
   transition-duration: 0.5s;
@@ -51,7 +54,10 @@ button:hover {
   background-color: transparent;
   border-style: none;
   border-radius: 50%;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+}
+.username {
+  display: inline-block;
 }
 
 .statusRow {
@@ -73,18 +79,54 @@ button:hover {
   transition-duration: 0.5s;
 }
 
+.spotifyStatus {
+  margin: 0;
+  padding: 0;
+}
+
+.trackLink {
+  width: 1px;
+  height: 1px;
+}
+
 .spotifyArt {
   width: 80px;
   height: 80px;
   vertical-align: middle;
-  margin-right: 10px;
-  margin-top: 10px;
+  margin-top: 20px;
   border-style: none;
   box-shadow: 0 0 50px rgb(255, 255, 255, 0.1 )
 }
 .spotifyTrack,
 .spotifyArtist {
   vertical-align: middle;
+  display: inline-block;
   margin: 0;
-  margin-top: 10px;
+  margin-top: 20px;
+}
+
+@media only screen and (max-width: 1024px) {
+
+  .lightModeButton {
+    width: 120px;
+    height: 120px;
+    font-size: 80px;
+  }
+
+  .userProfile,
+  .spotifyArt {
+    width: 160px;
+    height: 160px;
+  }
+  p {
+    font-size: 32px;
+  }
+  .statusRow {
+    height: 54px;
+  }
+  .discordStatus {
+    padding: 10px;
+    border-radius: 12px;
+    font-size: 32px;
+  }
 }

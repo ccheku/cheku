@@ -13,16 +13,17 @@
     <div class="profileBody">
       <div class="profileDiv">
         <img class="userProfile" id="userProfile" src="pfp-placeholder.png"> </img>
-        <p id="username"></p>
+        <p class="username" id="username"></p>
         <div class="statusRow">
           <button class="discordStatus" id="discordStatus" onclick="fetchStatus();" style="background-color: black; color: white; border-color: white;">Get Status</button>
         </div>
       </div>
       <div class="spotifyStatus" id="spotifyStatus">
-        <img class="spotifyArt" id="spotifyArt" src="spotify-logo.png"> </img>
+        <a href="https://open.spotify.com/" class="trackLink" id="trackLink"><img class="spotifyArt" id="spotifyArt" src="spotify-logo.png" style="margin-left: 8px;"> </img></a>
         <!-- <p class="spotifyAlbum" id="spotifyAlbum"></p> -->
-        <p class="spotifyTrack" id="spotifyTrack">...</p>
+        <p class="spotifyTrack" id="spotifyTrack"></p>
         <p class="spotifyArtist" id="spotifyArtist"></p>
+        <p id="songDuration"></p>
       </div>
     </div>
 
@@ -102,6 +103,9 @@
           // Spotify
           if (result && data && data.listening_to_spotify && spotify) {
             document.getElementById("spotifyArt").src = spotify.album_art_url;
+            document.getElementById("spotifyArt").style.marginRight = "10px";
+            document.getElementById("spotifyArt").style.marginLeft = "0px";
+            document.getElementById("trackLink").href = `https://open.spotify.com/track/${spotify.track_id}`;
             /* // Album Checks 
             if (spotify.album === spotify.artist) {
               document.getElementById("spotifyAlbum").innerHTML = "Self-Titled |";
@@ -115,9 +119,30 @@
             document.getElementById("spotifyArtist").innerHTML = spotify.artist;
           } else {
             document.getElementById("spotifyArt").src = "spotify-logo.png";
-            document.getElementById("spotifyTrack").innerHTML = '...';
+            document.getElementById("spotifyArt").style.marginLeft = "8px";
+            document.getElementById("spotifyArt").style.marginRight = "0px";
+            document.getElementById("spotifyTrack").innerHTML = '';
             document.getElementById("spotifyArtist").innerHTML = '';
+            document.getElementById("trackLink").href = "https://open.spotify.com/";
           }
+          const spotifyStart = spotify.timestamps.start;
+          const spotifyEnd = spotify.timestamps.end;
+          const now = Date.now();
+
+          const elapsedMs = now - spotifyStart;
+          const elapsedSeconds = Math.floor(elapsedMs / 1000);
+
+          const songMilliseconds = spotifyEnd - spotifyStart
+          songLength = Math.floor(songMilliseconds / 1000)
+
+          function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+          }
+
+          document.getElementById("songDuration").innerHTML = `${formatTime(elapsedSeconds)}/${formatTime(songLength)}`
+
         } catch (error) {
           console.error('Error fetching status:', error);
           document.getElementById("username").innerHTML = "Error loading user";
