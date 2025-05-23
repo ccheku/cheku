@@ -8,11 +8,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Armata&display=swap" rel="stylesheet">
   </head>
-  <body id ="body" style="background-color: black;">
+  <body id ="body" style="background-color: black; background-image: url('night-dark.gif');">
     <button class="lightModeButton" id="lightModeButton" onclick="lightMode()">☀️</button>
     <div class="profileBody">
       <div class="profileDiv">
-        <img class="userProfile" id="userProfile" src="pfp-placeholder.png"> </img>
+        <img class="userProfile" id="userProfile" src="transparent-placeholder.png"> </img>
         <p class="username" id="username"></p>
         <div class="statusRow">
           <button class="discordStatus" id="discordStatus" style="background-color: black; color: white; border-color: white;">loading...</button>
@@ -154,6 +154,7 @@
           document.getElementById("discordStatus").style.borderColor = "black";
           document.getElementById("progress-container").style.borderColor = "black";
           document.getElementById("progress-bar").style.backgroundColor = "black";
+          document.getElementById("body").style.backgroundImage = "url('night-light.gif')";
           if (document.getElementById("discordStatus").style.backgroundColor === "black") {
             document.getElementById("discordStatus").style.backgroundColor = "white";
           }
@@ -165,6 +166,7 @@
           document.getElementById("discordStatus").style.borderColor = "white";
           document.getElementById("progress-container").style.borderColor = "white";
           document.getElementById("progress-bar").style.backgroundColor = "white";
+          document.getElementById("body").style.backgroundImage = "url('night-dark.gif')";
           if (document.getElementById("discordStatus").style.backgroundColor === "white") {
             document.getElementById("discordStatus").style.backgroundColor = "black";
           }
