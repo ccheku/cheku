@@ -140,6 +140,10 @@ button:hover {
 
 @media only screen and (max-width: 1024px) {
 
+  body {
+    background-size: 520%;
+  }
+
   .lightModeButton {
     width: 120px;
     height: 120px;
