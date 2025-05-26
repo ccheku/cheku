@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>cheku</title>
+    <title id="titleName">cheku</title>
     <link rel="stylesheet" href="omasivu.css">
     <meta charset="UTF-8"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,6 +58,7 @@
           }
           if (result && data && data.discord_user) {
             document.getElementById("username").innerHTML = `${data.discord_user.display_name} (${data.discord_user.global_name})`;
+            document.getElementById("titleName").innerHTML = data.discord_user.display_name;
           } else {
             document.getElementById("username").innerHTML = "User data not found";
           }
