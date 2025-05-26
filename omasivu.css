@@ -39,12 +39,22 @@ button:hover {
 
 .linkColumn {
   margin-left: -300px;
-  margin-bottom: -65px;
+  margin-bottom: -72px;
   display: flex;
   flex-direction: column;
 }
+
+.linkHref {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 1px;
+   margin-top: 1px;
+}
+
 .linkIcon {
   transition-duration: 0.5s;
+  width: 30px;
+  height: 30px;
 }
 
 .profileBody {
@@ -160,18 +170,20 @@ button:hover {
     font-size: 80px;
   }
   .linkColumn {
-    margin-left: -600px;
-    margin-bottom: -130px;
+    margin-left: -550px;
+    margin-bottom: -140px;
   }
+
+  .linkHref {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 2px;
+    margin-top: 2px;
+  }
+
   .linkIcon {
     width: 60px;
     height: 60px;
-  }
-  #discordIcon {
-    margin-bottom: 2px;
-  }
-  #steamIcon {
-    margin-top: 2px;
   }
 
   .userProfile,
