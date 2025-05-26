@@ -37,6 +37,16 @@ button:hover {
   transition-duration: 0.5s;
 }
 
+.linkColumn {
+  margin-left: -300px;
+  margin-bottom: -65px;
+  display: flex;
+  flex-direction: column;
+}
+.linkIcon {
+  transition-duration: 0.5s;
+}
+
 .profileBody {
   display: flex;
   flex-direction: column;

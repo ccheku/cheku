@@ -11,6 +11,10 @@
   <body id ="body" style="background-color: black; background-image: url('night-dark.gif');">
     <button class="lightModeButton" id="lightModeButton" onclick="lightMode()">☀️</button>
     <div class="profileBody">
+      <div class="linkColumn">
+        <a target="_blank" class="linkHref" href="https://discordapp.com/users/491473057538506763" style="width: 30px; height: 30px; margin-bottom: 1px;" id=""><img class="linkIcon" id="discordIcon" src="discord-white.png" style="width: 30px; height: 30px;"> </img></a>
+        <a target="_blank" class="linkHref" href="https://steamcommunity.com/id/chekuu/" style="width: 30px; height: 30px; margin-top: 1px;" id=""><img class="linkIcon" id="steamIcon" src="steam-white.png" style="width: 30px; height: 30px;"> </img></a>
+      </div>
       <div class="profileDiv">
         <img class="userProfile" id="userProfile" src="transparent-placeholder.png"> </img>
         <p class="username" id="username"></p>
@@ -155,6 +159,8 @@
           document.getElementById("progress-container").style.borderColor = "black";
           document.getElementById("progress-bar").style.backgroundColor = "black";
           document.getElementById("body").style.backgroundImage = "url('night-light.gif')";
+          document.getElementById("discordIcon").src = 'discord-black.png';
+          document.getElementById("steamIcon").src = 'steam-black.png';
           if (document.getElementById("discordStatus").style.backgroundColor === "black") {
             document.getElementById("discordStatus").style.backgroundColor = "white";
           }
@@ -167,6 +173,8 @@
           document.getElementById("progress-container").style.borderColor = "white";
           document.getElementById("progress-bar").style.backgroundColor = "white";
           document.getElementById("body").style.backgroundImage = "url('night-dark.gif')";
+          document.getElementById("discordIcon").src = 'discord-white.png';
+          document.getElementById("steamIcon").src = 'steam-white.png';
           if (document.getElementById("discordStatus").style.backgroundColor === "white") {
             document.getElementById("discordStatus").style.backgroundColor = "black";
           }
