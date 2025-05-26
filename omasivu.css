@@ -159,6 +159,20 @@ button:hover {
     height: 120px;
     font-size: 80px;
   }
+  .linkColumn {
+    margin-left: -600px;
+    margin-bottom: -130px;
+  }
+  .linkIcon {
+    width: 60px;
+    height: 60px;
+  }
+  #discordIcon {
+    margin-bottom: 2px;
+  }
+  #steamIcon {
+    margin-top: 2px;
+  }
 
   .userProfile,
   .spotifyArt {
