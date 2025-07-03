@@ -67,7 +67,7 @@
                     const rgb = vibrant.rgb;
                     const rgbString = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
 
-                    document.getElementById("spotifyStatus").style.borderColor = rgbString;
+                    document.getElementById("spotifyStatus").style.backgroundColor = rgbString;
                   }
                 })
                 .catch(err => {
@@ -140,8 +140,6 @@
           document.getElementById("lightModeButton").innerHTML = "🌙";
           document.getElementById("discordStatus").style.color = "black";
           document.getElementById("discordStatus").style.borderColor = "black";
-          document.getElementById("progress-container").style.borderColor = "black";
-          document.getElementById("progress-bar").style.backgroundColor = "black";
           if (document.getElementById("discordStatus").style.backgroundColor === "black") {
             document.getElementById("discordStatus").style.backgroundColor = "white";
           }
@@ -151,8 +149,6 @@
           document.getElementById("lightModeButton").innerHTML = "☀️";
           document.getElementById("discordStatus").style.color = "white";
           document.getElementById("discordStatus").style.borderColor = "white";
-          document.getElementById("progress-container").style.borderColor = "white";
-          document.getElementById("progress-bar").style.backgroundColor = "white";
           if (document.getElementById("discordStatus").style.backgroundColor === "white") {
             document.getElementById("discordStatus").style.backgroundColor = "black";
           }
