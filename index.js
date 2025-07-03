@@ -77,6 +77,7 @@
 
             document.getElementById("spotifyArt").style.marginRight = "10px";
             document.getElementById("spotifyArt").style.marginLeft = "5px";
+            document.getElementById("spotifyArt").style.borderStyle = 'solid';
             document.getElementById("trackLink").href = `https://open.spotify.com/track/${spotify.track_id}`;
             /* // Album Checks 
             if (spotify.album === spotify.artist) {
@@ -90,6 +91,7 @@
             document.getElementById("spotifyTrack").innerHTML = spotify.song + ' |';
             document.getElementById("spotifyArtist").innerHTML = spotify.artist;
             document.getElementById("progress-container").style.borderStyle = 'solid';
+            document.getElementById("progress-container").style.boxShadow = '0px 0px 5px black';
 
             const spotifyStart = spotify.timestamps.start;
             const spotifyEnd = spotify.timestamps.end;
@@ -115,6 +117,8 @@
               document.getElementById("progress-bar").style.width = `${percent}%`;
             }
           } else {
+            document.getElementById("spotifyStatus").style.backgroundColor = null;
+            document.getElementById("spotifyArt").style.borderStyle = 'none';
             document.getElementById("spotifyArt").src = "transparent-placeholder.png";
             document.getElementById("spotifyArt").style.marginLeft = "8px";
             document.getElementById("spotifyArt").style.marginRight = "0px";
@@ -122,6 +126,7 @@
             document.getElementById("spotifyArtist").innerHTML = '';
             document.getElementById("trackLink").href = "";
             document.getElementById("progress-container").style.borderStyle = 'none';
+            document.getElementById("progress-container").style.boxShadow = 'none';
             document.getElementById("progress-bar").style.width = `0%`;
             document.getElementById("songDuration").innerHTML = ``
 
