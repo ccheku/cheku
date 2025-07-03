@@ -70,6 +70,7 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 8px;
 }
 
 .discordStatus {
@@ -90,6 +91,9 @@ button:hover {
 .spotifyStatus {
   margin: 0;
   padding: 0;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 3px;
 }
 
 .trackLink {
@@ -102,7 +106,8 @@ button:hover {
   width: 80px;
   height: 80px;
   vertical-align: middle;
-  margin-top: 20px;
+  margin-top: 8px;
+  margin-left: 5px;
   border-style: none;
 }
 .spotifyTrack,
@@ -111,6 +116,7 @@ button:hover {
   display: inline-block;
   margin: 0;
   margin-top: 20px;
+  margin-right: 5px;
 }
 
 .songDuration {
@@ -118,7 +124,7 @@ button:hover {
 }
 
 #progress-container {
-  width: 100%;
+  width: 95%;
   height: 10px;
   background-color: transparent;
   border-radius: 5px;
@@ -126,7 +132,8 @@ button:hover {
   border-color: #FFFFFF;
   border-width: 1px;
   overflow: hidden;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  margin-left: 2.5%;
   transition-duration: 0.5s;
 }
 
