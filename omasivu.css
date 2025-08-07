@@ -78,7 +78,8 @@ button:hover {
   background-color: transparent;
   border-style: none;
   border-radius: 50%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 5px black;
 }
 .username {
   display: inline-block;
@@ -90,6 +91,7 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 5%;
 }
 
 .discordStatus {
@@ -110,6 +112,12 @@ button:hover {
 .spotifyStatus {
   margin: 0;
   padding: 0;
+  border-style: none;
+  text-shadow: 0px 0px 5px black;
+  color: white;
+  transition-duration: 0.5s;
+  background-image: linear-gradient(to bottom, transparent 2%, black);
+  box-shadow: 0px 0px 5px black;
 }
 
 .trackLink {
@@ -122,8 +130,12 @@ button:hover {
   width: 80px;
   height: 80px;
   vertical-align: middle;
-  margin-top: 20px;
-  border-style: none;
+  margin-top: 8px;
+  margin-left: 5px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+  box-shadow: none;
 }
 .spotifyTrack,
 .spotifyArtist {
@@ -131,6 +143,7 @@ button:hover {
   display: inline-block;
   margin: 0;
   margin-top: 20px;
+  margin-right: 5px;
 }
 
 .songDuration {
@@ -138,7 +151,7 @@ button:hover {
 }
 
 #progress-container {
-  width: 100%;
+  width: 95%;
   height: 10px;
   background-color: transparent;
   border-radius: 5px;
@@ -146,8 +159,10 @@ button:hover {
   border-color: #FFFFFF;
   border-width: 1px;
   overflow: hidden;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  margin-left: 2.5%;
   transition-duration: 0.5s;
+  box-shadow: 0px 0px 5px black;
 }
 
 #progress-bar {
