@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
-  <head></head>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <head>
+    <title>cheku</title>
+    <link rel="stylesheet" href="omasivu.css">
+    <meta charset="UTF-8"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Armata&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/node-vibrant/3.1.6/vibrant.min.js"></script>
@@ -11,10 +13,25 @@
     <button class="lightModeButton" id="lightModeButton" onclick="lightMode()">☀️</button>
     <div class="profileBody">
       <div class="profileDiv">
+        <img class="userProfile" id="userProfile" src="transparent-placeholder.png"> </img>
+        <p class="username" id="username"></p>
+        <div class="statusRow">
+          <button class="discordStatus" id="discordStatus" style="background-color: black; color: white; border-color: white;">loading...</button>
+        </div>
+      </div>
+      <div class="spotifyStatus" id="spotifyStatus">
+        <a href="" class="trackLink" id="trackLink"><img class="spotifyArt" id="spotifyArt" src="transparent-placeholder.png" style="margin-left: 8px;"> </img></a>
+        <!-- <p class="spotifyAlbum" id="spotifyAlbum"></p> -->
+        <p class="spotifyTrack" id="spotifyTrack"></p>
+        <p class="spotifyArtist" id="spotifyArtist"></p>
+        <p class="songDuration" id="songDuration"></p>
+        <div id="progress-container">
+          <div id="progress-bar"></div>
         </div>
       </div>
     </div>
     <img id="hiddenAlbumArt" crossorigin="anonymous" style="display: none;" />
+
     <script src="index.js">
     </script>
   </body>
