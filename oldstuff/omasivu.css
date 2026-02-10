@@ -1,0 +1,184 @@
+body {
+  margin: 0;
+  background-color: black;
+  color: white;
+  font-family: Armata;
+  font-weight: 800;
+  transition-duration: 0.5s;
+  background-repeat: no-repeat;
+  background-size: 140%;
+  background-position-x: center;
+  background-position-y: top;
+}
+
+p {
+  display: block;
+}
+
+button {
+  display: block;
+  background-color: white;
+  color: white;
+  border-style: none;
+}
+button:hover {
+  cursor: pointer;
+}
+
+.lightModeButton {
+  width: 60px;
+  height: 60px;
+  font-size: 40px;
+  margin: 0;
+  margin-left: 10px;
+  margin-top: 10px;
+  padding: 0;
+  background-color: transparent;
+  transition-duration: 0.5s;
+}
+
+.profileBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-style: none;
+  vertical-align: middle;
+  margin-top: 15%;
+  width: 100%;
+}
+
+.userProfile {
+  width: 80px;
+  height: 80px;
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  background-color: transparent;
+  border-style: none;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 5px black;
+}
+.username {
+  display: inline-block;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.statusRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5%;
+}
+
+.discordStatus {
+  height: 100%;
+  padding: 5px;
+  border-radius: 6px;
+  border-style: solid;
+  border-color: white;
+  color: white;
+  background-color: black;
+  border-width: 1px;
+  font-family: Armata;
+  font-weight: 800;
+  transition-duration: 0.5s;
+  pointer-events: none;
+}
+
+.spotifyStatus {
+  margin: 0;
+  padding: 0;
+  border-style: none;
+  text-shadow: 0px 0px 5px black;
+  color: white;
+  transition-duration: 0.5s;
+  background-image: linear-gradient(to bottom, transparent 2%, black);
+  box-shadow: 0px 0px 5px black;
+}
+
+.trackLink {
+  width: 0px;
+  height: 0px;
+  color: transparent;
+}
+
+.spotifyArt {
+  width: 80px;
+  height: 80px;
+  vertical-align: middle;
+  margin-top: 8px;
+  margin-left: 5px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+  box-shadow: none;
+}
+.spotifyTrack,
+.spotifyArtist {
+  vertical-align: middle;
+  display: inline-block;
+  margin: 0;
+  margin-top: 20px;
+  margin-right: 5px;
+}
+
+.songDuration {
+  text-align: center;
+}
+
+#progress-container {
+  width: 95%;
+  height: 10px;
+  background-color: transparent;
+  border-radius: 5px;
+  border-style: none;
+  border-color: #FFFFFF;
+  border-width: 1px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  margin-left: 2.5%;
+  transition-duration: 0.5s;
+  box-shadow: 0px 0px 5px black;
+}
+
+#progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: #FFFFFF;
+  transition: width 0.3s ease;
+  transition-duration: 0.5s;
+}
+
+@media only screen and (max-width: 1024px) {
+
+  body {
+    background-size: 520%;
+  }
+
+  .lightModeButton {
+    width: 120px;
+    height: 120px;
+    font-size: 80px;
+  }
+
+  .userProfile,
+  .spotifyArt {
+    width: 160px;
+    height: 160px;
+  }
+  p {
+    font-size: 32px;
+  }
+  .statusRow {
+    height: 54px;
+  }
+  .discordStatus {
+    padding: 10px;
+    border-radius: 12px;
+    font-size: 32px;
+  }
+}

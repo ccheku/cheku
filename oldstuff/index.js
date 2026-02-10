@@ -96,8 +96,8 @@ async function fetchStatus() {
         document.getElementById("spotifyAlbum").innerHTML = spotify.album + ' |';
       }
       */
-      document.getElementById("spotifyTrack").innerHTML = spotify.song.split("(feat")[0].split("(with")[0] + ' |';
-      document.getElementById("spotifyArtist").innerHTML = spotify.artist.split(";")[0];
+      document.getElementById("spotifyTrack").innerHTML = spotify.song + ' |';
+      document.getElementById("spotifyArtist").innerHTML = spotify.artist;
       document.getElementById("progress-container").style.borderStyle = 'solid';
       document.getElementById("progress-container").style.boxShadow = '0px 0px 5px black';
 
