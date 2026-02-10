@@ -18,17 +18,7 @@ async function fetchStatus() {
       document.getElementById("userProfile").style.marginRight = "10px";
     }
     if (result && data && data.discord_user) {
-      switch(data.discord_user.global_name ){
-        case null:
-          document.getElementById("username").innerHTML = `${data.discord_user.username}`;
-          break;
-        case data.discord_user.username:
-          document.getElementById("username").innerHTML = `${data.discord_user.username}`;
-          break;
-        default:
-          document.getElementById("username").innerHTML = `${data.discord_user.global_name} (${data.discord_user.username})`;
-      }
-      
+      document.getElementById("username").innerHTML = `${data.discord_user.display_name} (${data.discord_user.global_name})`;
     } else {
       document.getElementById("username").innerHTML = "User data not found";
     }
@@ -96,8 +86,8 @@ async function fetchStatus() {
         document.getElementById("spotifyAlbum").innerHTML = spotify.album + ' |';
       }
       */
-      document.getElementById("spotifyTrack").innerHTML = spotify.song.split("(feat")[0].split("(with")[0] + ' |';
-      document.getElementById("spotifyArtist").innerHTML = spotify.artist.split(";")[0];
+      document.getElementById("spotifyTrack").innerHTML = spotify.song + ' |';
+      document.getElementById("spotifyArtist").innerHTML = spotify.artist;
       document.getElementById("progress-container").style.borderStyle = 'solid';
       document.getElementById("progress-container").style.boxShadow = '0px 0px 5px black';
 

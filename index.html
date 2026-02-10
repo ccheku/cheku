@@ -1,31 +1,27 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <link rel="stylesheet" href="main.css">
-  <link rel="stylesheet" href="header.css">
-  <link rel="stylesheet" href="profile.css">
-  <meta charset="UTF-8" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Armata&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/node-vibrant/3.1.6/vibrant.min.js"></script>
-</head>
-
-<body>
-  <header>
-    <a href="https://discordapp.com/users/491473057538506763" class="header-buttons" target="_blank"><img
-        class="header-images" src="discord-white-icon.png"></a>
-    <a href="https://steamcommunity.com/id/chekuu/" class="header-buttons" target="_blank"><img class="header-images"
-        src="steam-white-icon.png"></a>
-    <a href="https://www.last.fm/user/picklet1ckle" class="header-buttons" target="_blank"><img class="header-images"
-        src="lastfm-white-icon.png"></a>
-  </header>
-  <div class="main-container">
-    <div class="something-container">
+  <head>
+    <title>cheku</title>
+    <link rel="stylesheet" href="omasivu.css">
+    <meta charset="UTF-8"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Armata&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/node-vibrant/3.1.6/vibrant.min.js"></script>
+  </head>
+  <body id ="body" style="background-color: black;">
+    <button class="lightModeButton" id="lightModeButton" onclick="lightMode()">☀️</button>
+    <div class="profileBody">
+      <div class="profileDiv">
+        <img class="userProfile" id="userProfile" src="transparent-placeholder.png"> </img>
+        <p class="username" id="username"></p>
+        <div class="statusRow">
+          <button class="discordStatus" id="discordStatus" style="background-color: black; color: white; border-color: white;">loading...</button>
+        </div>
+      </div>
       <div class="spotifyStatus" id="spotifyStatus">
-        <a href="" class="trackLink" id="trackLink"><img class="spotifyArt" id="spotifyArt"
-            src="transparent-placeholder.png" style="margin-left: 8px;"> </img></a>
+        <a href="" class="trackLink" id="trackLink"><img class="spotifyArt" id="spotifyArt" src="transparent-placeholder.png" style="margin-left: 8px;"> </img></a>
+        <!-- <p class="spotifyAlbum" id="spotifyAlbum"></p> -->
         <p class="spotifyTrack" id="spotifyTrack"></p>
         <p class="spotifyArtist" id="spotifyArtist"></p>
         <p class="songDuration" id="songDuration"></p>
@@ -34,23 +30,9 @@
         </div>
       </div>
     </div>
-    <div class="profile-container">
-      <div class="profileDiv">
-        <img class="userProfile" id="userProfile" src="transparent-placeholder.png"></img>
-        <p class="username" id="username"></p>
-        <div class="statusRow">
-          <button class="discordStatus" id="discordStatus"
-            style="background-color: black; color: white; border-color: white;">loading...</button>
-        </div>
-      </div>
+    <img id="hiddenAlbumArt" crossorigin="anonymous" style="display: none;" />
 
-    </div>
-  </div>
-
-  </div>
-  <img id="hiddenAlbumArt" crossorigin="anonymous" style="display: none;" />
-
-  <script src="index.js"></script>
-</body>
-
+    <script src="index.js">
+    </script>
+  </body>
 </html>
