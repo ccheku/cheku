@@ -18,7 +18,17 @@ async function fetchStatus() {
       document.getElementById("userProfile").style.marginRight = "10px";
     }
     if (result && data && data.discord_user) {
-      document.getElementById("username").innerHTML = `${data.discord_user.display_name} (${data.discord_user.global_name})`;
+      switch(data.discord_user.global_name ){
+        case null:
+          document.getElementById("username").innerHTML = `${data.discord_user.username}`;
+          break;
+        case data.discord_user.username:
+          document.getElementById("username").innerHTML = `${data.discord_user.username}`;
+          break;
+        default:
+          document.getElementById("username").innerHTML = `${data.discord_user.global_name} (${data.discord_user.username})`;
+      }
+      
     } else {
       document.getElementById("username").innerHTML = "User data not found";
     }
@@ -86,8 +96,8 @@ async function fetchStatus() {
         document.getElementById("spotifyAlbum").innerHTML = spotify.album + ' |';
       }
       */
-      document.getElementById("spotifyTrack").innerHTML = spotify.song + ' |';
-      document.getElementById("spotifyArtist").innerHTML = spotify.artist;
+      document.getElementById("spotifyTrack").innerHTML = spotify.song.split("(feat")[0].split("(with")[0] + ' |';
+      document.getElementById("spotifyArtist").innerHTML = spotify.artist.split(";")[0];
       document.getElementById("progress-container").style.borderStyle = 'solid';
       document.getElementById("progress-container").style.boxShadow = '0px 0px 5px black';
 
@@ -133,27 +143,5 @@ async function fetchStatus() {
   } catch (error) {
     console.error('Error fetching status:', error);
     document.getElementById("username").innerHTML = "Error loading user";
-  }
-}
-
-function lightMode() {
-  if (document.getElementById("body").style.backgroundColor === "black") {
-    document.getElementById("body").style.backgroundColor = "white";
-    document.getElementById("body").style.color = "black";
-    document.getElementById("lightModeButton").innerHTML = "🌙";
-    document.getElementById("discordStatus").style.color = "black";
-    document.getElementById("discordStatus").style.borderColor = "black";
-    if (document.getElementById("discordStatus").style.backgroundColor === "black") {
-      document.getElementById("discordStatus").style.backgroundColor = "white";
-    }
-  } else {
-    document.getElementById("body").style.backgroundColor = "black";
-    document.getElementById("body").style.color = "white";
-    document.getElementById("lightModeButton").innerHTML = "☀️";
-    document.getElementById("discordStatus").style.color = "white";
-    document.getElementById("discordStatus").style.borderColor = "white";
-    if (document.getElementById("discordStatus").style.backgroundColor === "white") {
-      document.getElementById("discordStatus").style.backgroundColor = "black";
-    }
   }
 }
