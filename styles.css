@@ -10,9 +10,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  background:
-    radial-gradient(circle at center, #111 0%, #050505 80%);
+  background: radial-gradient(circle at center, #111 0%, #050505 80%);
 }
 
 @keyframes fadeInSlide {
