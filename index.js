@@ -81,8 +81,7 @@ async function fetchStatus() {
       const spotifyArt = document.getElementById("album");
 
       spotifyArt.src = spotify.album_art_url;
-
-      trackLink.href = `https://open.spotify.com/track/${spotify.track_id}`;
+      music.style.display = "flex"
 
       // Splitting song and artists
 
@@ -108,12 +107,7 @@ async function fetchStatus() {
         bar.style.width = `${percent}%`;
       }
     } else {
-      album.src = "";
-      song.innerHTML = ' ';
-      artist.innerHTML = ' ';
-      trackLink.href = "";
-      bar.style.width = `0%`;
-      progress.style.opacity = "0";
+      music.style.display = "none";
     }
   } catch (error) {
     console.error('Error fetching status:', error);
