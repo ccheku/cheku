@@ -17,7 +17,7 @@ async function fetchProfile() {
     if (result && data && data.discord_user) {
       switch (data.discord_user.global_name) {
         case null:
-          username.innerHTML = "dc: " + `${data.discord_user.username}`;
+          username.innerHTML = '<i class="fa-brands fa-discord"></i> ' + `${data.discord_user.username}`;
           break;
         case data.discord_user.username:
           username.innerHTML = `${data.discord_user.username}`;
