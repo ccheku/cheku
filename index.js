@@ -81,6 +81,7 @@ async function fetchStatus() {
       const spotifyArt = document.getElementById("album");
 
       spotifyArt.src = spotify.album_art_url;
+      trackLink.href = `https://open.spotify.com/track/${spotify.track_id}`
       music.style.display = "flex"
 
       // Splitting song and artists
